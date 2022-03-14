@@ -1,0 +1,30 @@
+
+ <tr>
+ <%if orders.status=="1"%>
+    <th><%= orders.id%></th>
+    <th> <%= orders.user.name%></th>
+    <th>
+    <%orders.order_items.each do |order_item|%>						
+    <%= render 'order_items' , :paint => order_item.paint , :order_item => order_item %>
+    <%end%>
+    </th>
+    <th><%= orders.subtotal%></th>
+    <%if orders.status=="1"%>
+    <th>not accept</th>
+    <%elsif orders.status=="2"%>
+    <th>accept</th>
+    <%else%>
+    <%end%>
+
+    <%if orders.status=="1"%>
+    <th>
+     <%= form_for carts_path do |f| %>
+        <%= f.hidden_field :status, value: "2" %>
+        <%= f.submit "accept" %>
+     <% end %>
+    </th>
+    <%else%>
+    <th>accepted</th>
+    <%end%>
+<%end%>
+</tr>

@@ -1,0 +1,2 @@
+class OpenAgentController < ApplicationController
+end

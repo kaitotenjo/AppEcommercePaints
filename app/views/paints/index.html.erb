@@ -1,0 +1,108 @@
+ <!-- Hero Section Begin -->
+       <section class="hero hero-normal">
+        <div class="container">
+                <div class="col-lg-3">
+                   <dropdown>
+                    <input id="toggle2" type="checkbox">
+                    <label for="toggle2" class="animate">KOMODO<i class="fa fa-list float-right"></i></label>
+                    <ul class="animate">
+                        <li><%= link_to "Introducion", introducion_path %> </li>
+                        <li><%= link_to "News", news_path %> </li>
+                        <li><%= link_to "Products", paints_path %> </li>
+                        <li><%= link_to "Open Agent", open_agent_path %> </li>
+                        <li><a href="#">Color Inspiration</a></li>
+                    </ul>
+                    </dropdown>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="/search">
+                                <div class="hero__search__categories">
+                                    All Paints
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <div class = "ui-widget">
+                                <input id = "automplete-1" name ="q" type="text" placeholder="search. . . " >
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>0964703613</h5>
+                                <span>support 24/7 time</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <%= link_to image_tag("banner/wall1.png")%> 
+             </div>
+        
+        </div>
+    </section>
+        <!-- Hero Section End -->
+
+        <!-- Product Section Begin -->
+        <section class="product spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-5">
+                        <div class="sidebar">
+                            <div class="sidebar__item">
+                                <h4>Department</h4>
+                                <ul>
+                                    <li><a href="#">exterior_paints</a></li>
+                                    <li><a href="#">interior_paints</a></li>
+                            </div>
+                            <div class="sidebar__item">
+                                <h4>Popular Size</h4>
+                                <div class="sidebar__item__size">
+                                    <label for="large">
+                                        Large
+                                        <input type="radio" id="large">
+                                    </label>
+                                </div>
+                                <div class="sidebar__item__size">
+                                    <label for="medium">
+                                        Medium
+                                        <input type="radio" id="medium">
+                                    </label>
+                                </div>
+                                <div class="sidebar__item__size">
+                                    <label for="small">
+                                        Small
+                                        <input type="radio" id="small">
+                                    </label>
+                                </div>
+                                <div class="sidebar__item__size">
+                                    <label for="tiny">
+                                        Tiny
+                                        <input type="radio" id="tiny">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-7">
+                        <div class="product__discount">
+                        <div class="filter__item">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-5">
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="filter__found">
+                                        <h6><span><%= @paints.count %></span> Products found</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row">
+                           <%=render @paints%>
+                           <div class="pagination" style="float: right; margin-right: 150px"><%== pagy_bootstrap_nav(@pagy) %></div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </section>

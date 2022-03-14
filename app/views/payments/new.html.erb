@@ -1,0 +1,34 @@
+<script src="https://www.paypal.com/sdk/js?client-id=ATyxGFKos4swuTzF3lxNy0e4nMsBoWVJqIvVMYMzSVZvaj99-fOHT6bceySsl9VIPwAAByWEEwIuQfPw"></script>
+
+<div id="paypal-button-container"></div>
+
+<script>
+  paypal.Buttons({
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '0.69'
+          }
+        }]
+      });
+    },
+    onApprove: function (data, actions) {
+      $.ajax({
+        url: '/cart_update',
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify({
+          'order_id': data.orderID,
+          'payer_id': data.payerID
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': $('meta[name="csrf-token"]').content
+        }
+      }).then(function () {
+        alert("Thanh toán thành công!");
+      });
+}
+  }).render('#paypal-button-container');
+</script>

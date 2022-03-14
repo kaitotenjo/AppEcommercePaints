@@ -1,0 +1,37 @@
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"><%= link_to "Sing In", login_path %></label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"><%= link_to "Sing Up", signup_path %></label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<%= form_for(@user) do |f| %>
+				<%= render 'shared/error_messages', object: f.object %>
+				<div class="group">
+							<%= f.label :name %>
+							<%= f.text_field :name, class: 'input' %>
+						</div>
+						<div class="group">
+							<%= f.label :email %>
+							<%= f.email_field :email, class: 'input' %>
+						</div>
+						<div class="group">
+							<%= f.label :password %>
+							<%= f.password_field :password, class: 'input' %>
+						</div>
+						<div class="group">
+							<%= f.label :password_confirmation %>
+							<%= f.password_field :password_confirmation, class: 'input' %>
+						</div>
+						<div class="group">
+							<%= f.submit "Create my account", class: "button" %>
+							</div>
+					<div class="hr"></div>
+					<div class="foot-lnk">
+						<a href="#forgot">login</a>
+					</div>
+      			  <% end %>
+      </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,257 @@
+<section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="../assets/paint/<%= @paint.color%>" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3><%=@paint.name%></h3>
+                        <div class="product__details__price"><%=@paint.price%> đ</div>
+                        <p><%= @paint.description%></p>
+                         <% if logged_in? && admin? %>
+                            <% else %>
+                                <%= form_for (@order_item) do |f| %>
+                                    <%= f.hidden_field :paint_id, value: @paint.id %>
+                                    <div class="product__details__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <%= f.number_field :quantity, value: 1, min: 1%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a >
+                                      <% if logged_in?%>
+                                     <%= f.submit "Add To Cart" ,class: "primary-btn"%>
+                                     <%else%>
+                                     <%= link_to "login to buy", login_path , class:"primary-btn"%>
+                                     <%end%>
+                                    </a>
+                                <% end %>
+                        <%end%>
+                        <ul>
+                            <li><b>Availability</b> <span>In Stock</span></li>
+                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                            <li><b>Weight</b> <span>5.5 kg</span></li>
+                            <li><b>Share on</b>
+                                <div class="share">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                    aria-selected="true">Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                    aria-selected="false">Information</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                    aria-selected="false">Reviews </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h3>Products Infomation</h3>
+                                    <div class="entry-content single-page">
+                                        <p style="text-align: justify;"></p><p>Một đất nước nhiệt đới thời tiết khắc nghiệt như Việt Nam, muốn bảo vệ tốt nhất cho ngôi nhà của bạn. Nhất là bề mặt bên ngoài ngôi nhà không thể thiếu lớp sơn chống thấm và thi công sơn đúng quy trình.</p>
+                                        <p>Hãng sơn KOMODO hướng dẫn cho khách hàng các bước thi công bề mặt bên ngoài ngôi nhà.</p>
+                                        <p>- Bước 1 : Sau khi gia trát để cho tường khô hoàn toàn, vệ sinh sạch sẽ bề mặt.</p>
+                                        <p>- Bước 2: Bả ma tít tạo phẳng và mịn bề mặt tường hơn (nếu có tùy vào nhu cầu mỗi gia đình)</p>
+                                        <p>- Bước 3 : Sơn chống thấm lên bề mặt tường đã được vệ sinh sạch sẽ trước đó.</p>
+                                        <p>Riêng đối với lớp chống thấm ta lăn kỹ 2 lớp. Trước khi sơn các bạn pha loãng thêm với nước sạch 5-10% quấy đều sơn trong vòng 3 phút để tránh vón cục. Lăn sơn từ trên xuống dưới. để tường khô trong vòng nửa tiếng lăn tiếp lớp thứ 2.<img style="display: block; margin-left: auto; margin-right: auto;" src="../assets/paint/3.png" alt="Upload" width="470" height="604"></p>
+                                        <p>- Bước 4 : Sơn lớp lót kiềm ngoại thất giúp kháng kiềm Chống nấm mốc, tiết kiệm lượng sơn phủ màu và tăng cao tuổi thọ cho lớp sơn phủ.<img style="display: block; margin-left: auto; margin-right: auto;" src="../assets/paint/1.png" alt="Upload" width="628" height="628"></p>
+                                        <p>- Bước 5 : Sơn màu bạn phủ lên 2 lớp, giữa 2 lớp phủ cách nhau ít nhất 2 tiếng để đảm bảo đã khô lớp phủ đầu tiên.<img style="display: block; margin-left: auto; margin-right: auto;" src="../assets/paint/2.png" alt="Upload" width="479" height="617"></p>
+                                        <p>Hãng sơn KOMODO cung cấp đầy đủ chủng loại sơn tường, giúp bảo vệ vững chắc cho ngôi nhà của bạn.</p>
+                                        <p>Nếu cần được hỗ trợ tư vấn thêm vui lòng để lại thông tin hoặc gọi đến hotline : 0949.045.333 để được tư vấn hỗ trợ chi tiết hơn.</p>
+                                        <p>.</p><p></p>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <div class="entry-content single-page">
+                                    <p style="text-align: justify;"></p><p style="text-align: left;"><strong>Chọn màu sơn nhà có lẽ là quyết định khó khăn và mất nhiều thời gian nhất trong công cuộc làm mới ngôi nhà bạn. Có vô vàn các màu ở nhiều sắc độ khác nhau mà bạn có thể lựa chọn, chính vì thế mà bạn đã rối lại càng rối.</strong></p>
+                                    <ul style="text-align: justify;">
+                                    <li><strong>Dựa vào mẫu họa tiết chủ đạo trong không gian đó</strong></li>
+                                    </ul>
+                                    <p style="text-align: center;" data-entity-type="" data-entity-uuid=""><img src="http://nipponpaint.com.vn/wp-content/uploads/2016/07/Original_Jeanine-Hays-Orchid-Purple-Living-Room_v.jpg.rend_.hgtvcom.966.1288.jpeg" alt="Phoi mau son nha son noi that 1" width="500" height="667" data-entity-type="" data-entity-uuid=""><span title="Kéo rê để thay đổi kích cỡ">​</span></p>
+                                    <p style="text-align: justify;">Nếu như căn phòng của bạn đã có đồ trang trí màu sắc, họa tiết bắt mắt thì hãy cân nhắc sơn màu tường trung tính như trắng, be sẽ tạo vẻ hài hòa cho không gian và giúp nhấn vào những họa tiết đó.</p>
+                                    <ol style="text-align: justify;" start="2">
+                                    <li><strong>Trang trí và sơn màu nhạt dần từ dưới lên trên</strong></li>
+                                    </ol>
+                                    <p data-entity-type="" data-entity-uuid=""><img src="http://nipponpaint.com.vn/wp-content/uploads/2016/07/dh2015_master-bedroom_01_hero-shot_h.jpg.rend_.hgtvcom.966.644.jpeg" alt="Phoi mau son nha son noi that 2" width="800" height="533" data-entity-type="" data-entity-uuid=""><span title="Kéo rê để thay đổi kích cỡ">​</span></p>
+                                    <p style="text-align: justify;">Bạn có thể chọn màu&nbsp;<a rel="nofollow" target="_blank" href="http://nipponpaint.com.vn/product/son-noi-that-nippon-odour-less-all-in-1/">sơn nội thất</a>&nbsp;sao cho các độ màu nhạt dần từ dưới lên trên, có nghĩa sàn sẽ có màu đậm nhất, sau đó đến tường và mái nhà. Cách này sẽ giúp căn nhà nhìn rộng hơn vì đã sao chép tinh tế quy luật màu sắc của không gian bên ngoài.</p>
+                                    <ol style="text-align: justify;" start="3">
+                                    <li><strong>Sử dụng 2 màu liền kề trên bảng màu để tạo cảm giác thư thái</strong></li>
+                                    </ol>
+                                    <p data-entity-type="" data-entity-uuid=""><img src="http://nipponpaint.com.vn/wp-content/uploads/2016/07/DH2013_Twin-Suite-Bedroom-01-Kids-Bedoom-FIN_s4x3.jpg.rend_.hgtvcom.966.725.jpeg" alt="Phoi mau son nha son noi that 3" width="700" height="525" data-entity-type="" data-entity-uuid=""><span title="Kéo rê để thay đổi kích cỡ">​</span></p>
+                                    <p style="text-align: justify;">Nhìn chung, 2 màu liền kề trên vòng màu, ví dụ như xanh lá cây và xanh dương, tạo cảm giác thư thái, thoải mái và nên sử dụng cho phòng ngủ và các không gian riêng tư.</p>
+                                    <p data-entity-type="" data-entity-uuid=""><img src="http://nipponpaint.com.vn/wp-content/uploads/2016/07/mau-tuong-dong.jpg" alt="Phoi mau son nha son noi that 4" width="300" height="287" data-entity-type="" data-entity-uuid=""><span title="Kéo rê để thay đổi kích cỡ">​</span></p>
+                                    <ol style="text-align: justify;" start="4">
+                                    <li><strong>Áp dụng quy tắc&nbsp;<a rel="nofollow" target="_blank" href="http://nipponpaint.com.vn/news_category/meo-son-nha/">sơn nhà&nbsp;</a>60 – 30 – 10</strong></li>
+                                    </ol>
+                                    <p data-entity-type="" data-entity-uuid=""><img src="http://nipponpaint.com.vn/wp-content/uploads/2016/07/DP_Judith-Balis-Eclectic-Great-Room_s4x3.jpg.rend_.hgtvcom.966.725.jpeg" alt="Phoi mau son nha son noi that 5" width="600" height="450" data-entity-type="" data-entity-uuid=""><span title="Kéo rê để thay đổi kích cỡ">​</span></p>
+                                    <p style="text-align: justify;">Khi lựa chọn trang trí lại căn nhà của mình, bạn hãy chia màu sắc thành 3 phần: 60% màu sắc chủ đạo (màu tường), 30% màu sắc thứ cấp (màu đệm ghế sofa, ga giường, ...) và 10% màu nhấn nhá (đồ trang trí nhỏ, phụ kiện). Tỷ lệ này đảm bảo sẽ mang lại sự hài hòa mà vẫn có những điểm thu hút mắt nhìn cho không gian.</p>
+                                    <ol style="text-align: justify;" start="5">
+                                    <li><strong>Sáng tạo với sắc xám</strong></li>
+                                    </ol>
+                                    <p data-entity-type="" data-entity-uuid=""><img src="http://nipponpaint.com.vn/wp-content/uploads/2016/07/original_Adriana-Gerbig-tall-tufted-headboard-grey-pale-blue-traditional.jpg.rend_.hgtvcom.966.725.jpeg" alt="Phoi mau son nha son noi that 5" width="966" height="725" data-entity-type="" data-entity-uuid=""><span title="Kéo rê để thay đổi kích cỡ">​</span></p>
+                                    <p style="text-align: justify;">Xám trung tính đang là màu xu hướng hiện nay và có thể phù hợp làm màu&nbsp;<a rel="nofollow" target="_blank" href="http://nipponpaint.com.vn/product/son-noi-that-nippon-odour-less-all-in-1/">sơn nội thất</a>&nbsp;cho bất kỳ căn phòng nào. Màu xám dễ dàng phối được với cả các màu pastel và các màu sống động như đỏ hồng, xanh lá và cam</p><p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                   <div class="entry-content single-page">
+                                    <p style="text-align: justify;"></p><p class="margintop5px ">Ông Nguyễn Trần Nam, Chủ tịch Hiệp hội Bất động sản Việt Nam cho biết, thế giới đã chứng minh, việc ứng dụng kiến trúc xanh, phương pháp xây dựng xanh để tạo lập những công trình xanh sẽ mang lại rất nhiều giá trị gia tăng cho dự án và thị trường bất động sản.</p>
+                                    <div align="justify">
+                                    <h3><div>Trong đó, một công trình xanh đúng nghĩa phải được thực hiện ngay từ khâu thiết kế, đến lựa chọn vật liệu và phương pháp xây dựng, vận hành. Trong các loại vật liệu xanh, sơn được đánh giá là một loại không thể thiếu để tạo nên một công trình xanh. Thậm chí, nhiều nhà dân cũng đã sử dụng loại sơn “xanh”, nhất là sơn chống nóng, sơn cách nhiệt.</div></h3>
+                                    <div><br><img src="https://vatlieuxaydung.org.vn/Upload/48/Nam_2018/Thang_3/Ngay_2/vlxd.org_sonchongnong.jpg" alt=""></div>
+                                    <h3><div><br>Chia sẻ với phóng viên, đại diện Công ty&nbsp;4Oranger Co.,Ltd cho biết, hiện nay, sơn “xanh” đang dần có chỗ đứng trên thị trường. Riêng với 4Oranger, sản phẩm sơn chống nóng, cách nhiệt đảm bảo tiêu chí môi trường chiếm gần 10% doanh thu của toàn Công ty.<br><br>Tương tự, TS. Nguyễn Thanh Hải, Chủ tịch HĐQT Công ty Cổ phần Hóa dầu công nghệ cao Hi-Pec cho hay, hiện nay, sơn chống nóng, cách nhiệt không chỉ được dùng cho công trình nhà ở, mà còn dùng cả trong các công trình giao thông đường bộ, nhằm giảm nhiệt độ đường.<br><br>“Chính vì vậy, trong công trình xanh rất cần và không thể thiếu các loại sơn chống nóng, cách nhiệt”, TS. Hải nhấn mạnh.<br><br>Theo nhận định của các chuyên gia, mỗi sản phẩm có thế mạnh riêng, nhưng trong các dòng sơn chống nóng có mặt tại thị trường Việt Nam hiện nay, thì sơn Graphenstone (Tây Ban Nha) được đánh giá có nhiều tính ưu việt. Loại sơn được Mỹ đánh giá là một trong những chất phản nhiệt tốt, lên đến 88% trong việc chống nóng, cách nhiệt, nó có thể giảm nhiệt độ xuống 37<sup>o</sup>C và đã có chứng chỉ xanh của Singapore.<br><br>Sơn loại sơn trên, nhiệt độ trong nhà có thể giảm 13<sup>o</sup>C, trong khi các dòng sơn khác chỉ giảm được tối đa 5<sup>o</sup>C. Ngoài ra, loại sơn này giảm tiêu hao năng lượng, hấp thụ CO<sub>2</sub>, không độc hại, chống nồm ẩm, không hợp chất hữu cơ bay hơi (VOC=0), dễ lau chùi, diệt khuẩn, lọc không khí đạt tiêu chuẩn cao về môi trường xanh.<br><br>Tuy nhiên, để nhận biết các dòng sơn cách nhiệt, chống nóng với người tiêu dùng Việt Nam hiện nay không phải dễ.<br><br>Về việc lựa chọn sơn, TS. Hải chia sẻ, để lựa chọn sản phẩm tốt, trước hết phải căn cứ vào chứng chỉ của đơn vị độc lập, xem sản phẩm đó có được các đơn vị độc lập uy tín cấp chứng chỉ xanh hay không. Tiếp đến, cần phải tìm hiểu khả năng cách nhiệt, chẳng hạn như chứng nhận của Mỹ về khả năng phản nhiệt (88% là cao nhất), không chứa các kim loại nặng, độc tố hữu cơ…<br><br>Ngoài ra, theo TS. Hải, người tiêu dùng cũng cần tìm hiểu xem sản phẩm đó có xác nhận nhiệt độ giảm được bao nhiêu độ. Bởi hiện nay, trên thị trường có một số sản phẩm vẫn lập lờ đánh lận con đen, chỉ nói nói chung chung là giảm nhiệt độ được từ 15 - 25<sup>o</sup>C, nhưng không cụ thể là nhiệt độ đo trên bề mặt hay nhiệt độ đo trong phòng.<br><br>Đây là hai thông số nhiệt độ khác nhau. Nhiệt độ trên bề mặt và không khí trong phòng phải từ 8 - 10<sup>o</sup>C mới đạt yêu cầu. Hơn nữa, cũng cần chú ý đến tuổi thọ của sản phẩm, những sản phẩm có tuổi thọ 3 - 5 năm sẽ không đạt yêu cầu và tốn kém, mà phải trên 10 năm, thời gian bảo hành phải từ 3 - 5 năm.<br><br>“Nhiều hãng quảng cáo giá thành rẻ, nhưng người tiêu dung cần phải biết độ dày bề mặt sơn là bao nhiêu. Ví dụ anh bảo rẻ, nhưng độ dày lại hơn 1 mm và anh giá đắt, nhưng chỉ 0,5 mm thì giá cả khác nhau hoàn toàn. Vì vậy, khi mua, người tiêu dùng nên hỏi giá cho 1 m<sup>2</sup>&nbsp;và giảm cho 1 nhiệt độ trong không khí là bao nhiêu”, ông Hải khuyến nghị thêm.<br><br>Cũng theo ông Hải, hiện nay, rất nhiều người chọn các vật liệu thay thế như tấm xốp, hay tấm tráng nhôm, túi khí trong cách nhiệt..., nhưng những chất trên không cách nhiệt, mà chỉ giảm nhiệt vì nó không phản nhiệt.<br><br>“Khi ánh sáng mặt trời chiếu xuống có 9% là tia tử ngoại, 40% là tia sáng nhìn được, 51% là tia hồng ngoại. Tia sáng nhìn được gây ra nhiệt nóng, nên người ta muốn giảm nóng, việc đầu tiên nhất là phải phản nhiệt được. Do đó, sơn chống nóng, cách nhiệt vẫn là lựa chọn không thể thay thế hiện nay cho các công trình xanh kể cả thế giới và Việt Nam”, TS. Hải chia sẻ.</div></h3>
+                                    </div><p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2> Reviews</h2>
+                    </div>
+                </div>
+                 </div>
+                <% if @comments.nil?%>
+                <%else%>
+                <% @comments.each do |comment| %>
+                <div class="custom-comment">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                             <%= gravatar_for comment.user %>
+                            <p class="text-secondary text-center"><%= comment.created_at%></p>
+                        </div>
+                        <div class="col-md-10">
+                            <p>
+                                <a class="float-left" href=""><strong><%=comment.user.name%></strong></a>
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+
+                        </p>
+                        <div class="clearfix"></div>
+                            <p><%= comment.body %></p>
+                        </div>
+                    </div>
+                </div> 
+                </div> 
+                <% end %>
+                <%end%>
+                <% if logged_in? %>
+                <%= render 'comments/form' %>
+                <%else%>
+                <button class="login-comment"><%= link_to "Login To comment",login_path%></button>
+                <%end%>
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+    <!-- Related Product Section Begin -->
+    <section class="related-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title related__product__title">
+                        <h2>Related Product</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" >
+                        <img src="../assets/paint/2.png" class="product__item__pic set-bg" > 
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="/paints/2"> Sơn lót chống kiềm nội thất Nano thùng 21 Kg(K01)</a></h6>
+                            <h5>210000 đ</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" >
+                        <img src="../assets/paint/3.png" class="product__item__pic set-bg" > 
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="paints/3">Sơn lót chống kiềm nội thất Nano lon 5 Kg( Sơn lót chống kiềm nội thất Nano lon 5 Kg(K01)</a></h6>
+                            <h5>50000 đ</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" >
+                         <img src="../assets/paint/4.png" class="product__item__pic set-bg" > 
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="paints/4">Sơn lót chống kiềm ngoại thất Nano thùng 20 Kg</a></h6>
+                            <h5>200000 đ</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" >
+                         <img src="../assets/paint/2.png" class="product__item__pic set-bg" > 
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="/paints/5">Sơn lót chống kiềm ngoại thất Nano lon  5Kg</a></h6>
+                            <h5>50000 đ</h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>

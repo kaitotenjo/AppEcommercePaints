@@ -1,0 +1,93 @@
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i>KOMODO</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div>
+                            <div class="header__top__right__language">
+                               
+                                <div>Vietnamese</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Vietnamese</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <% if logged_in? %>
+                                <div class="header__top__right__language">
+                                <div> <a href="#"data-toggle="dropdown">Account <b class="caret"></b></div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><%= link_to "Profile", current_user %></li>
+                                    <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                                    <li><%= link_to "Log out", logout_path, method: :delete %></li>
+                                </ul>
+                                </div>
+                                    <% else %>
+                                    <i ><%= link_to "Login", login_path %></i>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                    <% if logged_in? && admin? %>
+                        <ul>
+                            <li><%= link_to "Home", root_path %></li>
+                            <li><%= link_to "Manage of user" ,users_path%></li>
+                            <li><%= link_to "Manage of products" ,products_path%></li>
+                            <li><%= link_to "Manage of carts",manager_carts_path%></li>
+                        </ul>
+                    <% else %>
+                    <ul>
+                            <li><%= link_to "Home", root_path %></li>
+                            <li><a href="/paints">Shop</a></li>
+                            
+                            <li><a href="open_agent">Open Agent</a></li>
+                            <li><%= link_to "News",news_path%></li>
+                     </ul>
+                    <% end %>
+                    </nav>
+                </div>
+                <% if logged_in? && admin? %>
+                 <% else %>
+                 <%if logged_in? %>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="/carts"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <%end%>
+                <% end %>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>

@@ -1,0 +1,12 @@
+ <tr>
+    <td><%= link_to paints.id%></td>
+    <td><%= link_to paints.name%></td>
+    <td><%= link_to paints.price%></td>
+    <td><%= link_to paints.type_paint%></td>
+    <td><%= link_to paints.created_at%></td>
+    <td><%= link_to paints.updated_at%></td>
+    <td>
+        <%= link_to 'Edit', edit_paint_path(paints) %> 
+       <%= link_to "delete", paints, method: :delete, data: { confirm: "You sure?" } %>
+    </td>
+</tr>
