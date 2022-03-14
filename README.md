@@ -26,6 +26,7 @@ User
 - [x] bình luận các mặt hàng
 - [ ] trao đổi với chatbot
 - [ ] chỉnh sửa thông tin cá nhân
+
 admin
 - [x] thêm/sửa/xóa bình luận ( comment)
 - [x] thêm/sửa/xóa đơn đặt hàng( orders)
